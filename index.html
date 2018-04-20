@@ -8,6 +8,19 @@
 <body>
     <div id="div1">
         Hell World! It's time to play.
+        <p><span class="serviceRequestLeftColumn">Type: </span><span class="serviceRequestRightColumn">{{Questions.GraffitiQuestions.GraffitiType}}</span></p>
+<p><span class="serviceRequestLeftColumn">Size: </span><span class="serviceRequestRightColumn">{{Questions.GraffitiQuestions.Size}}</span></p>
+<p><span class="serviceRequestLeftColumn">Is the graffiti on private land? </span><span class="serviceRequestRightColumn">{{Questions.GraffitiQuestions.OnPrivateLand}}</span></p>
+<p><span class="serviceRequestLeftColumn">Did you witness the graffiti: </span><span class="serviceRequestRightColumn">{{Questions.GraffitiQuestions.OnPublicLandQuestions.WitnessedGraffiti}}</span></p>
+%Command:IfDefined(“{{Questions.GraffitiQuestions.OnPublicLandQuestions.WitnessGraffitiQuestions.WillingToGiveStatement}}”)%
+<p><span class="serviceRequestLeftColumn">Are you willing to give a statement? </span><span class="serviceRequestRightColumn">{{Questions.GraffitiQuestions.OnPublicLandQuestions.WitnessGraffitiQuestions.WillingToGiveStatement}}</span></p>
+                %Command:IfDefined("{{Questions.GraffitiQuestions.OnPublicLandQuestions.WitnessedGraffitiQuestions.StatementQuestions.DateGraffitiOccurred}}")%
+                                <p><span class="serviceRequestLeftColumn">Approximately when did the graffiti occur? </span><span class="serviceRequestRightColumn">%Command:FormatDate("{{Questions.GraffitiQuestions.OnPublicLandQuestions.WitnessedGraffitiQuestions.StatementQuestions.DateGraffitiOccurred}}")%</span></p>
+                                <p><span class="serviceRequestLeftColumn">Description of any individuals and vehicles involved including vehicle registration number: </span><span class="serviceRequestRightColumn">{{Questions.GraffitiQuestions.OnPublicLandQuestions.WitnessedGraffitiQuestions.StatementQuestions.DescriptionOfIndividualsAndVehicles}}</span></p>
+                %EndCommand:IfDefined%
+
+%EndCommand:IfDefined%
+
     </div>
 </body>
 </html>
